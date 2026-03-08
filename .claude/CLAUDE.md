@@ -213,10 +213,16 @@ cp .env.example .env
 - [ ] **⏳ API 키 수령 후 작업** — 네거티브 키워드 자동 등록 (`app/api/negatives.py`) → `POST /sp/negativeKeywords`
 - [ ] **⏳ API 키 수령 후 작업** — 스케줄러 (`app/scheduler/jobs.py`) → 4시간 주기 자동 실행
 
-### Phase 4 — 대시보드 🚧 진행 중
-- [ ] 성과 조회 API 엔드포인트 (`app/routers/dashboard.py`)
-- [ ] 액션 이력 조회
-- [ ] 실시간 ROAS 트래킹 UI
+### Phase 4 — 대시보드 ✅ 완료
+- [x] 성과 조회 API 엔드포인트 (`app/routers/dashboard.py`)
+  - `GET /dashboard/status` — 전체 ROAS 현황 요약
+  - `GET /dashboard/campaigns` — 캠페인별 성과 집계
+  - `GET /dashboard/actions` — 최적화 액션 목록 (필터링 지원)
+  - `GET /dashboard/harvest` — Exact 수확 후보 목록
+- [x] 엔드포인트 테스트 (`tests/test_dashboard.py` — 26개 테스트)
+- [x] `main.py`에 dashboard 라우터 등록
+- [ ] **추후 작업** — 액션 이력 DB 저장 (SQLite → PostgreSQL)
+- [ ] **추후 작업** — 실시간 ROAS 트래킹 UI (Jinja2 또는 별도 프론트)
 
 ---
 
